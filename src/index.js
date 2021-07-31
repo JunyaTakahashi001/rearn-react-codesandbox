@@ -1,14 +1,9 @@
+// reactで必要
 import React from "react";
 import ReactDom from "react-dom";
 
-const App = () => {
-  return (
-    <>
-      <h1>こんにちは</h1>
-      <p>お元気ですか？</p>
-    </>
-  );
-};
+// コンポーネント[App.js]を読み込み
+import App from "./App";
 
-// id=rootに差し込み
+// HTMLのタグid=rootに差し込み
 ReactDom.render(<App />, document.getElementById("root"));
