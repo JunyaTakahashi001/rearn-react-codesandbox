@@ -7,7 +7,7 @@
  */
 
 // reactでは必ず必要
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ColorfulMessage from "./components/ColorfulMessage";
 
 const App = () => {
@@ -27,14 +27,18 @@ const App = () => {
     setFaceShowFlag(!faceShowFlag);
   };
 
-  // numが3の倍数の時だけtrueをセット
-  if (num > 0) {
-    if (num % 3 === 0) {
-      faceShowFlag || setFaceShowFlag(true);
-    } else {
-      faceShowFlag && setFaceShowFlag(false);
+  // [useEffect]は第二引数に[]空の配列を設定すると最初の1回のみ呼び出される
+  // 第二引数に変数を設定するとその変数が変化した時のみ呼び出される
+  useEffect(() => {
+    // numが3の倍数の時だけtrueをセット
+    if (num > 0) {
+      if (num % 3 === 0) {
+        faceShowFlag || setFaceShowFlag(true);
+      } else {
+        faceShowFlag && setFaceShowFlag(false);
+      }
     }
-  }
+  }, [num]); // [eslint]の機能で、この関数内で使用する変数を配列に渡さないとエラーを表示する、今回のように[num]以外の関数に関心を持ちたくない場合は、[eslint]の設定を変更する※変更方法はファイル全体OFFや変数指定でOFFなど色々ある
 
   return (
     <>
