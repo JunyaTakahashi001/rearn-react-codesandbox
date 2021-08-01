@@ -8,7 +8,10 @@
 
 // reactでは必ず必要
 import React, { useEffect, useState } from "react";
-import ColorfulMessage from "./components/ColorfulMessage";
+// インポート方法①defaultエクスポートの場合
+// import ColorfulMessage from "./components/ColorfulMessage";
+// インポート方法②[export]の場合
+import { ColorfulMessage } from "./components/ColorfulMessage";
 
 const App = () => {
   // stateを利用する {変数, 更新用関数名 } = useState(初期値);

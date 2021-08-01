@@ -1,7 +1,8 @@
 import React from "react";
 
 // 引数propsで受け取り（オブジェクト形式）
-const ColorfulMessage = (props) => {
+// エクスポート方法②[export]を関数の先頭に付与
+export const ColorfulMessage = (props) => {
   const { color, children } = props;
   const contentStyle = {
     color, // オブジェクトのkeyとvalueが同じ場合省略できる
@@ -12,4 +13,5 @@ const ColorfulMessage = (props) => {
   return <p style={contentStyle}>{children}</p>;
 };
 
-export default ColorfulMessage;
+// エクスポート方法①
+// export default ColorfulMessage;
