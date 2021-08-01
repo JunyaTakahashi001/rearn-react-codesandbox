@@ -16,9 +16,10 @@ const App = () => {
     <>
       {/* インラインでstyleを当てる方法 */}
       <h1 style={{ color: "red" }}>こんにちは</h1>
-      {/* コンポーネントに対し、props(渡したい情報)を渡す[color,massage] */}
-      <ColorfulMessage color="blue" message="お元気ですか?" />
-      <ColorfulMessage color="pink" message="元気です!" />
+      {/* ①コンポーネントに対し、props(渡したい情報)を渡す[color] */}
+      {/* ②タグ内のテキストは[props.children]で受け取り側で受け取れる */}
+      <ColorfulMessage color="blue">お元気ですか？</ColorfulMessage>
+      <ColorfulMessage color="pink">元気です！</ColorfulMessage>
       <button onClick={onClickButton}>ボタン</button>
     </>
   );
