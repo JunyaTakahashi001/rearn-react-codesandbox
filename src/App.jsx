@@ -4,13 +4,16 @@
  */
 
 // reactでは必ず必要
-import React from "react";
+import React, { useState } from "react";
 import ColorfulMessage from "./components/ColorfulMessage";
 
 const App = () => {
-  const onClickButton = () => {
-    alert();
+  const onClickCountUp = () => {
+    // 現在の状況の更新
+    setNum(num + 1);
   };
+  // stateを利用する {変数, 更新用関数名 } = useState(初期値);
+  const [num, setNum] = useState(0);
 
   return (
     <>
@@ -20,7 +23,9 @@ const App = () => {
       {/* ②タグ内のテキストは[props.children]で受け取り側で受け取れる */}
       <ColorfulMessage color="blue">お元気ですか？</ColorfulMessage>
       <ColorfulMessage color="pink">元気です！</ColorfulMessage>
-      <button onClick={onClickButton}>ボタン</button>
+      {/* state関数呼び出し */}
+      <button onClick={onClickCountUp}>カウントアップ！</button>
+      <p>{num}</p>
     </>
   );
 };
